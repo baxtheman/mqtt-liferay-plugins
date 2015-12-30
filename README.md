@@ -1,5 +1,10 @@
 # MQTT Connector for Liferay portal 6.2
 
+
+## Integration between connector and others plugins
+
+![Mqtt connector plugin architecture](http://i.imgur.com/6UH9oVw.png)
+
 to be continue...
 
 
