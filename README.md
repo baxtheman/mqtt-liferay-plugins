@@ -1,6 +1,10 @@
 # MQTT Connector for Liferay portal 6.2
 
 
+ Based on PAHO Java client for Mqtt messaging protocol.
+ 
+ ![PAHO Logo](http://www.infoq.com/resource/articles/practical-mqtt-with-paho/en/smallimage/logo.jpg)
+
 ## Integration between connector and others plugins
 
 ![Mqtt connector plugin architecture](http://i.imgur.com/6UH9oVw.png)
