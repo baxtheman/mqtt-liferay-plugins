@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+
+<beans
+	default-destroy-method="destroy"
+	default-init-method="afterPropertiesSet"
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd"
+>
+
+	<!-- Destinations -->
+
+	<bean id="destination.mqtt_arrived" class="com.liferay.portal.kernel.messaging.SerialDestination">
+		<property name="name" value="mqtt/message_arrived" />
+	</bean>
+	<bean id="destination.mqtt_event" class="com.liferay.portal.kernel.messaging.SerialDestination">
+		<property name="name" value="mqtt/event" />
+	</bean>
+
+	<!-- Listeners -->
+
+	<bean id="messageListener.message_arrived" class="it.sysdata.mqtt.messaging.ConsumerArrivedMessageListener" />
+	<bean id="messageListener.event" class="it.sysdata.mqtt.messaging.ConsumerEventMessageListener" />
+
+	<!-- Configurator -->
+
+	<bean id="messagingConfigurator" class="com.liferay.portal.kernel.messaging.config.PluginMessagingConfigurator">
+		<property name="destinations">
+			<list>
+				<ref bean="destination.mqtt_arrived" />
+				<ref bean="destination.mqtt_event" />
+			</list>
+		</property>
+		<property name="messageListeners">
+			<map key-type="java.lang.String" value-type="java.util.List">
+				<entry key="mqtt/message_arrived">
+					<list value-type="com.liferay.portal.kernel.messaging.MessageListener">
+						<ref bean="messageListener.message_arrived" />
+					</list>
+				</entry>
+				<entry key="mqtt/event">
+					<list value-type="com.liferay.portal.kernel.messaging.MessageListener">
+						<ref bean="messageListener.event" />
+					</list>
+				</entry>
+			</map>
+		</property>
+	</bean>
+</beans>

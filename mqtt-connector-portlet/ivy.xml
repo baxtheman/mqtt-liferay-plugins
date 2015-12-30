@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+
+<ivy-module
+	version="2.0"
+	xmlns:m2="http://ant.apache.org/ivy/maven"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="http://ant.apache.org/ivy/schemas/ivy.xsd"
+>
+	<info module="mqtt-connector-portlet" organisation="com.liferay">
+		<extends extendType="configurations,description,info" location="../../ivy.xml" module="com.liferay.sdk" organisation="com.liferay" revision="latest.integration" />
+	</info>
+
+	<dependencies defaultconf="default">
+		<dependency org="org.eclipse.paho" name="org.eclipse.paho.client.mqttv3" rev="1.0.2" />
+	</dependencies>
+</ivy-module>
