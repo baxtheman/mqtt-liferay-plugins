@@ -1,9 +1,33 @@
 # MQTT Connector for Liferay portal 6.2
 
-to be continue...
+(README is in progress)
+
+### Connector configuration
+
+Initial configuration is based on portlet.properties and can be overwritten in database by control panel.
+
+Settings are portal wide. 
+
+Screenshot:
+
+![Control panel](http://i.imgur.com/19ZSqJR.png)
 
 
-## License
+
+The connector is based on PAHO Java client for Mqtt messaging protocol.
+ 
+See [https://eclipse.org/paho](https://eclipse.org/paho)
+ 
+![PAHO Logo](http://www.infoq.com/resource/articles/practical-mqtt-with-paho/en/smallimage/logo.jpg)
+
+### Integration between connector and others plugins
+
+![Mqtt connector plugin architecture](http://i.imgur.com/6UH9oVw.png)
+
+
+
+
+### License
 
 <small>
 MIT License
