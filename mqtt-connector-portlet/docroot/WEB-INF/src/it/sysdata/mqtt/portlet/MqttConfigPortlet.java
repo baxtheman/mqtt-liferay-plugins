@@ -40,10 +40,11 @@ public class MqttConfigPortlet extends MVCPortlet {
 		throws Exception {
 
 		String topic = ParamUtil.getString(actionRequest, "topic");
+		int qos= ParamUtil.getInteger(actionRequest, "qos");
 		String payload = ParamUtil.getString(actionRequest, "payload");
 
 		if (MqttLocalServiceUtil.isConnected()) {
-			MqttLocalServiceUtil.publish(topic, payload, 0);
+			MqttLocalServiceUtil.publish(topic, payload, qos);
 		}
 
 		SessionMessages.add(

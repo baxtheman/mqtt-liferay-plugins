@@ -13,6 +13,8 @@ boolean connected = MqttLocalServiceUtil.isConnected();
 
 boolean autoConnect = PrefsPropsUtil.getBoolean(PortletPropsKeys.MQTT_AUTO_CONNECT, PortletPropsValues.MQTT_AUTO_CONNECT);
 
+boolean retryConnect = PrefsPropsUtil.getBoolean(PortletPropsKeys.MQTT_ERRORS_RETRY_CONNECT);
+
 String brokerUrl = PrefsPropsUtil.getString(PortletPropsKeys.MQTT_BROKER_URL, PortletPropsValues.MQTT_BROKER_URL);
 String clientID = PrefsPropsUtil.getString(PortletPropsKeys.MQTT_BROKER_CLIENTID, PortletPropsValues.MQTT_BROKER_CLIENTID);
 String username = PrefsPropsUtil.getString(PortletPropsKeys.MQTT_BROKER_USERNAME, PortletPropsValues.MQTT_BROKER_USERNAME);
@@ -42,27 +44,33 @@ boolean logInfo = PrefsPropsUtil.getBoolean(PortletPropsKeys.MQTT_EVENTS_LOGINFO
 			</div>
 		</c:if>
 
+		<c:if test="<%= !connected && retryConnect %>">
+		<div>
+			<small><liferay-ui:message key="retry-connection-enable" /></small>
+		</div>
+		</c:if>
+
 		<c:if test="<%= !connected %>">
 
-		<liferay-portlet:actionURL name="connect" var="connectURL">
-			<portlet:param name="redirect" value="<%= portletURL.toString() %>" />
-		</liferay-portlet:actionURL>
+			<liferay-portlet:actionURL name="connect" var="connectURL">
+				<portlet:param name="redirect" value="<%= portletURL.toString() %>" />
+			</liferay-portlet:actionURL>
 
-		<aui:form action="<%= connectURL %>" method="post">
-			<aui:button type="submit" value="connect" />
-		</aui:form>
+			<aui:form action="<%= connectURL %>" method="post">
+				<aui:button type="submit" value="connect" />
+			</aui:form>
 
 		</c:if>
 
 		<c:if test="<%= connected %>">
 
-		<liferay-portlet:actionURL name="disconnect" var="disconnectURL">
-			<portlet:param name="redirect" value="<%= portletURL.toString() %>" />
-		</liferay-portlet:actionURL>
+			<liferay-portlet:actionURL name="disconnect" var="disconnectURL">
+				<portlet:param name="redirect" value="<%= portletURL.toString() %>" />
+			</liferay-portlet:actionURL>
 
-		<aui:form action="<%= disconnectURL %>" method="post">
-			<aui:button primary="false" type="submit" value="disconnect" />
-		</aui:form>
+			<aui:form action="<%= disconnectURL %>" method="post">
+				<aui:button primary="false" type="submit" value="disconnect" />
+			</aui:form>
 
 		</c:if>
 	</aui:col>
@@ -152,6 +160,8 @@ Build for the liferay community by <a href="https://twitter.com/baxtheman">@baxt
 				<aui:form action="<%= publishTestURL %>" method="post" name="fm2">
 
 					<aui:input label="topic" name="topic" type="text"  />
+
+					<aui:input label="qos" name="qos" type="text" value="0" />
 
 					<aui:input label="payload" name="payload" type="textarea" />
 

@@ -38,7 +38,7 @@ public class SchedulerMessageListener implements MessageListener {
 
 				portletPreferences.setValue(
 					PortletPropsKeys.MQTT_ERRORS_RETRY_CONNECT,
-					String.valueOf(false));
+					Boolean.toString(false));
 
 				portletPreferences.store();
 
