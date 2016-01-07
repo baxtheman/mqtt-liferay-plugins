@@ -44,7 +44,15 @@ public class SchedulerMessageListener implements MessageListener {
 
 				// try connect
 
-				MqttLocalServiceUtil.connect();
+				try {
+
+					MqttLocalServiceUtil.connect();
+
+				} catch(Exception e2) {
+
+					// try catch to prevent rollback for preference store
+					_log.error(e2);
+				}
 			}
 		}
 		catch (Exception e) {

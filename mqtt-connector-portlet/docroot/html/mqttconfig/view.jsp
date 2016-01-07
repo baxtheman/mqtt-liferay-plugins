@@ -41,13 +41,14 @@ boolean logInfo = PrefsPropsUtil.getBoolean(PortletPropsKeys.MQTT_EVENTS_LOGINFO
 			<div class="alert alert-block">
 				<i class="icon-thumbs-down icon-large"></i>
 				<liferay-ui:message key="socket-off" />
-			</div>
-		</c:if>
 
-		<c:if test="<%= !connected && retryConnect %>">
-		<div>
-			<small><liferay-ui:message key="retry-connection-enable" /></small>
-		</div>
+				<c:if test="<%= !connected && retryConnect %>">
+				<div>
+					<small><liferay-ui:message key="retry-connection-enable" /></small>
+				</div>
+				</c:if>
+
+			</div>
 		</c:if>
 
 		<c:if test="<%= !connected %>">
