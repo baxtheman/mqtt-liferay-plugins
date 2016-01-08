@@ -13,7 +13,7 @@ import org.eclipse.paho.client.mqttv3.MqttException;
 /**
  * @author @baxtheman
  */
-public class MqttPublishMessageListener implements MessageListener {
+public class MQTTPublishMessageListener implements MessageListener {
 
 	@Override
 	public void receive(Message message) {
@@ -35,5 +35,5 @@ public class MqttPublishMessageListener implements MessageListener {
 	}
 
 	private static Log _log = LogFactoryUtil.getLog(
-		MqttPublishMessageListener.class);
+		MQTTPublishMessageListener.class);
 }

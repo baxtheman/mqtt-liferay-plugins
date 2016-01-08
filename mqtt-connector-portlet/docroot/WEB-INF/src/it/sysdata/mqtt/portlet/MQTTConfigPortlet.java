@@ -19,7 +19,7 @@ import org.eclipse.paho.client.mqttv3.MqttException;
 /**
  * @author @baxtheman
  */
-public class MqttConfigPortlet extends MVCPortlet {
+public class MQTTConfigPortlet extends MVCPortlet {
 
 	public void connect(
 		ActionRequest actionRequest, ActionResponse actionResponse)

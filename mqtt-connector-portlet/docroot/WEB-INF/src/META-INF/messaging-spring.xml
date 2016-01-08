@@ -19,8 +19,8 @@
 
 	<!-- Listeners -->
 
-	<bean id="messageListener.mqtt_publish" class="it.sysdata.mqtt.messaging.MqttPublishMessageListener" />
-	<bean id="messageListener.message_arrived" class="it.sysdata.mqtt.messaging.MqttArrivedMessageListener" />
+	<bean id="messageListener.mqtt_publish" class="it.sysdata.mqtt.messaging.MQTTPublishMessageListener" />
+	<bean id="messageListener.message_arrived" class="it.sysdata.mqtt.messaging.MQTTArrivedMessageListener" />
 
 	<!-- Configurator -->
 

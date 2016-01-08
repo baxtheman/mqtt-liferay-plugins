@@ -8,12 +8,12 @@ import com.liferay.portal.kernel.messaging.MessageListener;
 /**
  * @author baxtheman
  */
-public class MqttArrivedMessageListener implements MessageListener {
+public class MQTTArrivedMessageListener implements MessageListener {
 
 	@Override
 	public void receive(Message message) {
 	}
 
 	private static Log _log = LogFactoryUtil.getLog(
-		MqttArrivedMessageListener.class);
+		MQTTArrivedMessageListener.class);
 }

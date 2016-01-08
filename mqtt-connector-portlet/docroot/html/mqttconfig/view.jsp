@@ -178,4 +178,3 @@ Build for the liferay community by <a href="https://twitter.com/baxtheman">@baxt
 	</aui:col>
 </aui:row>
 
-<hr/>

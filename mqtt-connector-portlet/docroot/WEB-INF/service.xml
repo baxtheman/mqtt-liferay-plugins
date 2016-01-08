@@ -4,6 +4,6 @@
 	<author>@baxtheman</author>
 	<namespace>mqtt</namespace>
 
-	<entity name="Mqtt" local-service="true" remote-service="false">
+	<entity name="Mqtt" local-service="true" remote-service="true">
 	</entity>
 </service-builder>
