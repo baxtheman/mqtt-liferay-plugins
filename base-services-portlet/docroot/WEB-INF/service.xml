@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE service-builder PUBLIC "-//Liferay//DTD Service Builder 6.2.0//EN" "http://www.liferay.com/dtd/liferay-service-builder_6_2_0.dtd">
+<service-builder package-path="it.sysdata.base">
+	<author>@baxtheman</author>
+	<namespace>sysdata</namespace>
+
+	<entity name="UserHelper" local-service="true" remote-service="false">
+	</entity>
+
+	<entity name="UserHelper_1_0" local-service="false" remote-service="true">
+	</entity>
+
+	<entity name="UserHelper_1_1" local-service="false" remote-service="true">
+	</entity>
+
+	<exceptions>
+		<exception>NotEnable</exception>
+		<exception>SecretKey</exception>
+	</exceptions>
+</service-builder>
